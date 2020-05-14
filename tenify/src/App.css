@@ -1,16 +1,6 @@
 .App {
+	padding: 10px;
 	min-height: 100vh;
-  background-color: #1DB954
+  	background-color: #1DB954
 }
 
-.middle-box {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: #191414;
-	border-radius: 20px;
-	height: 5%;
-	width: 10%;
-	color: #ffff;
-}
