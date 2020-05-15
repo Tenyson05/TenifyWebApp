@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Login from './Login';
+import Tracks from './component/Tracks/Tracks'
 import * as serviceWorker from './serviceWorker';
+import { Route, BrowserRouter as Router } from 'react-router-dom'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+	<Router>
+		<Route exact path="/" component={Login} />
+		<Route path="/tracks" component={Tracks} />
+	</Router>,
   document.getElementById('root')
 );
 

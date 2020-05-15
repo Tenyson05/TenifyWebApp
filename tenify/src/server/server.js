@@ -11,7 +11,7 @@ const port = 8888;
 const client_id = creds.CLIENT_ID;
 const client_secret = creds.CLIENT_SECRETS;
 const redirect_uri = creds.CALLBACK;
-const FRONTEND_URI = 'http://localhost:3000';
+const FRONTEND_URI = 'http://localhost:3000/tracks';
 // app.use(express.static(path.join(__dirname, 'build')));
 
 
@@ -105,7 +105,7 @@ app.get('/callback', function (req, res) {
 
 				// we can also pass the token to the browser to make requests from there
 				res.redirect(
-					`${FRONTEND_URI}/#${querystring.stringify({
+					`${FRONTEND_URI}/${querystring.stringify({
 						access_token,
 						refresh_token,
 					})}`,
