@@ -15,7 +15,10 @@ ReactDOM.render(
 	// </div>,
 	
 	<Router>
+		{/* If toke = true render sidemenu */}
+
 		<Route exact path="/" component={Login} />
+		<SideMenu/>
 		<Route path="/tracks" component={Tracks} />
 		<Route path="/recents" component={Recentlyplayed}/>
 		<Route path="/top" component={TopArtist}/>
