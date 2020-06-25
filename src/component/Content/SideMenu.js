@@ -4,7 +4,7 @@ import { getHashParams } from '../SpotifyStats/stats'
 import Spotify from 'spotify-web-api-node';
 import { Rewind, Music, Users } from 'react-feather';
 
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, withRouter } from 'react-router-dom';
 
 
 const SpotifyWebApi = new Spotify();
@@ -66,6 +66,9 @@ const NavIcon = styled.div`
 `
 
 const StyledNavItems = styled.div`
+	:hover {
+		opacity: 0.7;
+	}
 	margin-top: 50px;
 	align-content: center;
 	height: 80px;
@@ -75,10 +78,6 @@ const StyledNavItems = styled.div`
 		text-decoration: none;
 		font-size: 20px;
 		color: ${(props) => props.active ? "#1DB954" : "#fff"};
-		:hover {
-		opacity: 0.7;
-		text-decoration: none; /* Gets rid of underlining of icons */
-    }  
   }
 `
 
@@ -106,8 +105,13 @@ class NavItem extends Component {
 class SideNav extends Component {
 	constructor(props) {
 		super(props);
+		const token = getHashParams().access_token;
+		if (token) {
+			SpotifyWebApi.setAccessToken(token);
+		}
 		this.state = {
-			activePath: '/top',
+			loggedIn: token ? true : false,
+			activePath: props.location.pathname,
 			items: [
 				{
 					path: '/tracks',
@@ -116,7 +120,7 @@ class SideNav extends Component {
 					key: 1
 				},
 				{
-					path: '/top',
+					path: '/top' ,
 					name: 'TopArtist',
 					icon: <Users size={50}/>,
 					key: 1
@@ -160,6 +164,7 @@ class SideNav extends Component {
 	}
 }
 
+const RouterSideNav = withRouter(SideNav);
 
 class SideMenu extends Component {
 	constructor() {
@@ -228,9 +233,9 @@ class SideMenu extends Component {
 					</PlayerBarInfo>
 					
 				</ProfileCard>
-				<SideNav>
+				<RouterSideNav>
 					
-				</SideNav>
+				</RouterSideNav>
 				
 
 			</SidemenuBar>

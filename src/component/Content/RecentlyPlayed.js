@@ -99,10 +99,10 @@ class RecentlyPlayed extends Component {
 			this.setState({ recentlyPlayed: data.body.items }, console.log('dfdf', data.body.items))
 		})
 	}
-	
-	// componentDidMount() {
-	// 	this.getRecentlyPlayed()
-	// }
+
+	componentDidMount() {
+		this.getRecentlyPlayed()
+	}
 
 	render() {
 		return(
@@ -142,12 +142,9 @@ class RecentlyPlayed extends Component {
 								</RecentCards>
 							</li>
 						))
-
 					}
 				</RecentList>
 			</RecentHome>
-
-
 		);
 	}
 }

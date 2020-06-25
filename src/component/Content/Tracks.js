@@ -12,8 +12,10 @@ const TrackHome = styled.div`
 	color: #ffff;
 	min-height: 100vh;
 	height: 100%;
+	/* max-width: 100vw; */
 	background-color: #18191E;
 	padding: 100px;
+	padding-left: 300px;
 
 `
 const TracksList = styled.ul`
@@ -115,9 +117,9 @@ class Tracks extends Component {
 			})
 	}
 
-	// componentDidMount() {
-	// 	this.getTopTracks()
-	// }
+	componentDidMount() {
+		this.getTopTracks()
+	}
 
 
 	render() {

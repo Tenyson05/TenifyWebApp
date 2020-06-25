@@ -11,7 +11,7 @@ const port = 8888;
 const client_id = creds.CLIENT_ID;
 const client_secret = creds.CLIENT_SECRETS;
 const redirect_uri = creds.CALLBACK;
-const FRONTEND_URI = 'http://localhost:3000/top';
+const FRONTEND_URI = 'http://localhost:3000/recents';
 // app.use(express.static(path.join(__dirname, 'build')));
 
 

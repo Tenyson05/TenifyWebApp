@@ -54,7 +54,6 @@ const ArtistName = styled.span`
 	color: #ffff;
 	:hover {
 		text-decoration: underline;
-		/* color: blue; */
 	}
 
 `
@@ -77,7 +76,7 @@ class TopArtist extends Component {
 		SpotifyWebApi.getMyTopArtists({time_range: "short_term"})
 			.then(response => response)
 			.then(data => {
-				this.setState({ topArtist: data.body.items })
+				this.setState({ topArtist: data.body.items }, console.log('dddd', data.body.items))
 			})
 	}
 
@@ -89,7 +88,6 @@ class TopArtist extends Component {
 		return (
 			
 			<TopartisttHome>
-				{/* <Sidebar></Sidebar> */}
 				<TopartistTitle>
 					<h2> Most Recent Top Artist </h2>
 				</TopartistTitle>
